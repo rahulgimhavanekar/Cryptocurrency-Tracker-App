@@ -1,0 +1,50 @@
+.main {
+  margin-top: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 2rem;
+}
+
+.heading input {
+  font: inherit;
+  color: #292929;
+  outline: none;
+  border: none;
+  padding: 12px 12px;
+  border-radius: 4px;
+  width: 70%;
+}
+
+.main p {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+}
+
+.heading select {
+  padding: 8px 8px;
+  font-size: 1rem;
+  border-radius: 4px;
+  color: #292929;
+  background-color: #51e2f5;
+  outline: none;
+}
+
+select option {
+  background-color: #edf7f6;
+  color: #292929;
+}
+
+select option:hover {
+  background-color: #51e2f5;
+  color: #292929;
+}
