@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, useMatch } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import classes from "./Coin.module.css";
 
 const Coin = (props) => {

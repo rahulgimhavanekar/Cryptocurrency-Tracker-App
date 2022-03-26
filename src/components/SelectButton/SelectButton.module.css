@@ -1,0 +1,13 @@
+.select {
+  padding: 10px 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  color: #292929;
+  background-color: #51e2f5;
+  outline: none;
+  cursor: pointer;
+}
+
+.select option {
+  background-color: #edf7f6;
+}

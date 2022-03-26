@@ -4,3 +4,35 @@
   justify-content: center;
   flex-direction: column;
 }
+
+.main {
+  margin-top: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 2rem;
+}
+
+.heading input {
+  font: inherit;
+  color: #292929;
+  outline: none;
+  border: none;
+  padding: 12px 12px;
+  border-radius: 4px;
+  width: 70%;
+}
+
+.main p {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+}

@@ -5,17 +5,18 @@ import { useParams } from "react-router-dom";
 const CoinInfo = () => {
   const params = useParams();
 
+  const fetchSingleCoin = async (coinId) => {
+    try {
+      const response = await axios.get(
+        `https://api.coingecko.com/api/v3/coins/${coinId}`
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    const fetchSingleCoin = async (coinId) => {
-      try {
-        const response = await axios.get(
-          `https://api.coingecko.com/api/v3/coins/${coinId}`
-        );
-        console.log(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     fetchSingleCoin(params.id);
   }, [params.id]);
 
