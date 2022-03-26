@@ -52,7 +52,7 @@ const CoinsList = (props) => {
                 <img src={coin.image} alt={coin.name} />
               </div>
               <div className={classes.name}>
-                <span>{coin.symbol}</span>
+                <span className={classes.symbol}>{coin.symbol}</span>
                 <p>{coin.name}</p>
               </div>
             </div>

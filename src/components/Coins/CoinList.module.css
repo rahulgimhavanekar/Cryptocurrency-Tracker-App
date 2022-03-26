@@ -30,6 +30,10 @@ td {
   text-align: center;
 }
 
+.symbol {
+  font-weight: 600;
+}
+
 .coin_row {
   text-align: left;
   display: flex;
