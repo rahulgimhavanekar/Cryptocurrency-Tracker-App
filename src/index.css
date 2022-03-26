@@ -1,6 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+@font-face {
+  font-family: Metropolis;
+  src: url(./fonts/metropolis.regular.otf);
+}
 
 * {
   margin: 0;
@@ -9,8 +10,6 @@
 }
 
 body {
-  /* font-family: "Montserrat", sans-serif; */
-  font-family: "Nanum Gothic", sans-serif;
-  font-family: "Open Sans", sans-serif;
+  font-family: Metropolis, sans-serif;
   background-color: #edf7f6;
 }
