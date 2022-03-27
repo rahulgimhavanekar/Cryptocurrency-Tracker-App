@@ -1,16 +1,13 @@
 import React, { useContext } from "react";
-import { CryptoContext } from "../../context/cypto-context";
 import { useHistory } from "react-router-dom";
+import { CryptoContext } from "../../context/cypto-context";
+import { numberWithCommas } from "../../utils";
 
 import classes from "./CoinList.module.css";
 
 const CoinsList = (props) => {
   const history = useHistory();
   const { symbol } = useContext(CryptoContext);
-
-  const numberWithCommas = (number) => {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  };
 
   const filteredCoins = props.list.filter((coin) => {
     if (props.inputText === "") {
