@@ -29,7 +29,9 @@ const CoinInfo = () => {
   return (
     <div className={classes.container}>
       <section className={classes.sidebar}>
-        <img src={currentCoin?.image.large} alt={currentCoin?.name} />
+        <div className={classes.image_box}>
+          <img src={currentCoin?.image.large} alt={currentCoin?.name} />
+        </div>
         <h3>{currentCoin?.name}</h3>
         <div className={classes.market_data}>
           <p className={classes.rank}>Rank: {currentCoin?.market_cap_rank}</p>
