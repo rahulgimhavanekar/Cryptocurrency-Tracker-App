@@ -2,8 +2,8 @@ import React, { useEffect, useState, useContext } from "react";
 import CoinList from "../Coins/CoinList";
 import axios from "axios";
 import { CryptoContext } from "../../context/cypto-context";
+import LoadingSpinner from "../UI/LoadingSpinner";
 import classes from "./Home.module.css";
-import SelectButton from "../SelectButton/SelectButton";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -32,21 +32,20 @@ const Home = () => {
   return (
     <div className={classes.home}>
       <div className={classes.main}>
-        <div className={classes.heading}>
-          <input
-            type="text"
-            id="search"
-            placeholder="Search your cryptocurrency..."
-            onChange={(e) => setSearchText(e.target.value)}
-          />
-          <SelectButton />
-        </div>
+        <input
+          type="text"
+          id="search"
+          placeholder="Search your cryptocurrency..."
+          onChange={(e) => setSearchText(e.target.value)}
+        />
         <p>Get all information about your favourite cryptocurrency</p>
       </div>
       {!loading ? (
         <CoinList inputText={searchText} list={coinList} />
       ) : (
-        <p>Loading...</p>
+        <div className={classes.centered}>
+          <LoadingSpinner />
+        </div>
       )}
     </div>
   );

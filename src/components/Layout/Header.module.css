@@ -1,8 +1,9 @@
 .header {
-  background-color: #85f4ff;
-  padding: 1.5rem;
+  background-color: #51e2f5;
+  padding: 2rem;
   color: #292929;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  cursor: pointer;
 }

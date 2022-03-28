@@ -3,6 +3,13 @@
   display: flex;
 }
 
+.centered {
+  margin: 3rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .sidebar {
   width: 30vw;
   display: flex;
