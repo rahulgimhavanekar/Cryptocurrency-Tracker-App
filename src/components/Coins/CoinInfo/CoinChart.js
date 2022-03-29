@@ -12,7 +12,6 @@ import {
 import { Line } from "react-chartjs-2";
 import { useParams } from "react-router-dom";
 import { CryptoContext } from "../../../context/cypto-context";
-import LoadingSpinner from "../../UI/LoadingSpinner";
 import axios from "axios";
 import classes from "./CoinChart.module.css";
 
