@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { numberWithCommas } from "../../../utils";
 import { CryptoContext } from "../../../context/cypto-context";
 import CoinChart from "./CoinChart";
 import LoadingSpinner from "../../UI/LoadingSpinner";
@@ -42,14 +43,21 @@ const CoinInfo = () => {
           </div>
           <h3>{currentCoin?.name}</h3>
           <div className={classes.market_data}>
-            <p className={classes.rank}>Rank: {currentCoin?.market_cap_rank}</p>
+            <p className={classes.rank}>
+              {" "}
+              <span>Rank:</span> {currentCoin?.market_cap_rank}
+            </p>
             <p className={classes.price}>
-              Current Price: {symbol}{" "}
-              {currentCoin?.market_data.current_price[currency]}
+              <span>Current Price:</span> {symbol}{" "}
+              {currentCoin?.market_data.current_price[currency] &&
+                numberWithCommas(
+                  currentCoin?.market_data.current_price[currency]
+                )}
             </p>
             <p className={classes.market_cap}>
-              Market Cap: {symbol}{" "}
-              {currentCoin?.market_data.market_cap[currency]}
+              <span>Market Cap:</span> {symbol}{" "}
+              {currentCoin?.market_data.market_cap[currency] &&
+                numberWithCommas(currentCoin?.market_data.market_cap[currency])}
             </p>
           </div>
         </section>

@@ -2,12 +2,12 @@
   padding: 10px 10px;
   font-size: 1rem;
   border-radius: 4px;
-  color: #292929;
-  background-color: #51e2f5;
+  color: #ededed;
+  background-color: #171717;
   outline: none;
   cursor: pointer;
 }
 
 .select option {
-  background-color: #edf7f6;
+  background-color: #171717;
 }

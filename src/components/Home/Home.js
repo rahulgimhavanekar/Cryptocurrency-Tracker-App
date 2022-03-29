@@ -32,13 +32,13 @@ const Home = () => {
   return (
     <div className={classes.home}>
       <div className={classes.main}>
+        <p>Get all information about your favourite cryptocurrency</p>
         <input
           type="text"
           id="search"
           placeholder="Search your cryptocurrency..."
           onChange={(e) => setSearchText(e.target.value)}
         />
-        <p>Get all information about your favourite cryptocurrency</p>
       </div>
       {!loading ? (
         <CoinList inputText={searchText} list={coinList} />

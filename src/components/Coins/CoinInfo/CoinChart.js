@@ -52,6 +52,22 @@ const CoinChart = () => {
 
   const options = {
     responsive: true,
+    scales: {
+      x: {
+        ticks: {
+          font: {
+            family: "Metropolis, sans-serif",
+          },
+        },
+      },
+      y: {
+        ticks: {
+          font: {
+            family: "Metropolis, sans-serif",
+          },
+        },
+      },
+    },
     plugins: {
       legend: {
         position: "top",
@@ -74,7 +90,7 @@ const CoinChart = () => {
     },
     elements: {
       point: {
-        radius: 2,
+        radius: 0,
         pointStyle: "circle",
       },
     },
@@ -99,21 +115,17 @@ const CoinChart = () => {
       {
         label: `Price ( Past ${days} Days ) in ${currency}`,
         data: chartData?.prices.map((item) => item[1].toFixed(2)),
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgb(255, 99, 132)",
+        borderColor: "#da0037",
+        backgroundColor: "#da0037",
       },
     ],
   };
 
   return (
     <section className={classes.chart_container}>
-      {loading ? (
-        <div className={classes.centered}>
-          <LoadingSpinner />
-        </div>
-      ) : (
+      <div className={classes.chart}>
         <Line data={data} options={options} />
-      )}
+      </div>
       <div className={classes.actions}>
         <button onClick={() => setDays(1)}>24 hours</button>
         <button onClick={() => setDays(30)}>1 month</button>
