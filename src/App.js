@@ -1,11 +1,13 @@
-import Layout from "./components/Layout/Layout";
+import { Fragment } from "react";
 import { Switch, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CoinPage from "./pages/CoinPage";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
-    <Layout>
+    <Fragment>
+      <Header />
       <Switch>
         <Route exact path="/">
           <HomePage />
@@ -14,7 +16,7 @@ function App() {
           <CoinPage />
         </Route>
       </Switch>
-    </Layout>
+    </Fragment>
   );
 }
 

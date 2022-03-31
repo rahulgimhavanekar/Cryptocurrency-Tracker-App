@@ -10,7 +10,7 @@ const WatchList = (props) => {
   return (
     <div className={classes.sidebar}>
       <div className={classes.sidebar_header}>
-        <h3>Your WatchList</h3>
+        <h3>Your Watchlist</h3>
         <button onClick={props.onClose}>X </button>
       </div>
       <div className={classes.sidebar_content}>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import CoinList from "../Coins/CoinList";
 import { CryptoContext } from "../../context/cypto-context";
 import LoadingSpinner from "../UI/LoadingSpinner";
@@ -8,8 +8,6 @@ const Home = () => {
   const [searchText, setSearchText] = useState("");
 
   const { loading, coinList } = useContext(CryptoContext);
-
-  useEffect(() => {}, []);
 
   return (
     <div className={classes.home}>

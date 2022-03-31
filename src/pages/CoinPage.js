@@ -1,5 +1,5 @@
 import React from "react";
-import CoinInfo from "../components/Coins/CoinInfo/CoinInfo";
+import CoinInfo from "../components/Coins/CoinInfo";
 
 const CoinPage = () => {
   return <CoinInfo />;

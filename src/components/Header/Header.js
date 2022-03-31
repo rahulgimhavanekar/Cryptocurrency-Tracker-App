@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import SelectButton from "../SelectButton/SelectButton";
-import WatchList from "../WatchList/WatchList";
+import SelectButton from "./SelectButton";
+import WatchList from "./WatchList";
 import classes from "./Header.module.css";
 
 const Header = () => {

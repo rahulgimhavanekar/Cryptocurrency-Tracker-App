@@ -20,60 +20,6 @@ const CoinsList = (props) => {
     }
   });
 
-  let content;
-
-  if (filteredCoins.length === 0) {
-    content = (
-      <tr>
-        <td colSpan="5" className={classes.not_found}>
-          No coins found!
-        </td>
-      </tr>
-    );
-  } else {
-    content = filteredCoins.slice(0, 10).map((coin) => {
-      const profit = coin.price_change_24h > 0;
-
-      const cssClasses = profit ? classes.profit : classes.loss;
-      return (
-        <tr
-          onClick={() => {
-            history.push(`/coins/${coin.id}`);
-          }}
-          key={coin.id}
-        >
-          <td>{coin.market_cap_rank}</td>
-          <td>
-            <div className={classes.coin_row}>
-              <div className={classes.logo}>
-                <img src={coin.image} alt={coin.name} />
-              </div>
-              <div className={classes.name}>
-                <h3 className={classes.symbol}>{coin.symbol}</h3>
-                <p>{coin.name}</p>
-              </div>
-            </div>
-          </td>
-          <td>
-            {symbol + " "}
-            {numberWithCommas(coin.current_price.toFixed(2))}
-          </td>
-          <td>
-            <span className={cssClasses}>
-              {symbol + " "}
-              {profit && "+"}
-              {numberWithCommas(coin.price_change_24h.toFixed(2))}
-            </span>
-          </td>
-          <td>
-            {symbol + " "}
-            {numberWithCommas(coin.market_cap)}
-          </td>
-        </tr>
-      );
-    });
-  }
-
   return (
     <div className={classes.list}>
       <table>
@@ -86,7 +32,57 @@ const CoinsList = (props) => {
             <th>Market Cap</th>
           </tr>
         </thead>
-        <tbody>{content}</tbody>
+        <tbody>
+          {filteredCoins.length === 0 ? (
+            <tr>
+              <td colSpan="5" className={classes.not_found}>
+                No coins found!
+              </td>
+            </tr>
+          ) : (
+            filteredCoins.slice(0, 10).map((coin) => {
+              const profit = coin.price_change_24h > 0;
+
+              const cssClasses = profit ? classes.profit : classes.loss;
+              return (
+                <tr
+                  onClick={() => {
+                    history.push(`/coins/${coin.id}`);
+                  }}
+                  key={coin.id}
+                >
+                  <td>{coin.market_cap_rank}</td>
+                  <td>
+                    <div className={classes.coin_row}>
+                      <div className={classes.logo}>
+                        <img src={coin.image} alt={coin.name} />
+                      </div>
+                      <div className={classes.name}>
+                        <h3 className={classes.symbol}>{coin.symbol}</h3>
+                        <p>{coin.name}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    {symbol + " "}
+                    {numberWithCommas(coin.current_price.toFixed(2))}
+                  </td>
+                  <td>
+                    <span className={cssClasses}>
+                      {symbol + " "}
+                      {profit && "+"}
+                      {numberWithCommas(coin.price_change_24h.toFixed(2))}
+                    </span>
+                  </td>
+                  <td>
+                    {symbol + " "}
+                    {numberWithCommas(coin.market_cap)}
+                  </td>
+                </tr>
+              );
+            })
+          )}
+        </tbody>
       </table>
     </div>
   );

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { numberWithCommas } from "../../../utils";
-import { CryptoContext } from "../../../context/cypto-context";
+import { numberWithCommas } from "../../utils";
+import { CryptoContext } from "../../context/cypto-context";
 import CoinChart from "./CoinChart";
-import LoadingSpinner from "../../UI/LoadingSpinner";
+import LoadingSpinner from "../UI/LoadingSpinner";
 import classes from "./CoinInfo.module.css";
 
 const CoinInfo = () => {

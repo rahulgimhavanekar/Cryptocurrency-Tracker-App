@@ -11,7 +11,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { useParams } from "react-router-dom";
-import { CryptoContext } from "../../../context/cypto-context";
+import { CryptoContext } from "../../context/cypto-context";
 import axios from "axios";
 import classes from "./CoinChart.module.css";
 
@@ -27,7 +27,6 @@ ChartJS.register(
 
 const CoinChart = () => {
   const [chartData, setChartData] = useState();
-  const [loading, setLoading] = useState(false);
   const [days, setDays] = useState(1);
   const params = useParams();
   const { currency } = useContext(CryptoContext);
@@ -35,12 +34,10 @@ const CoinChart = () => {
   useEffect(() => {
     const fetchChartData = async (noOfdays) => {
       try {
-        setLoading(true);
         const response = await axios.get(
           `https://api.coingecko.com/api/v3/coins/${params.id}/market_chart?vs_currency=${currency}&days=${noOfdays}`
         );
         setChartData(response.data);
-        setLoading(false);
       } catch (error) {
         console.log(error);
       }
