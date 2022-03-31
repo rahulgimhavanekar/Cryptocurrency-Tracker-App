@@ -7,3 +7,14 @@
   justify-content: space-between;
   cursor: pointer;
 }
+
+.right_side button {
+  font: inherit;
+  font-size: 1.25rem;
+  background-color: transparent;
+  color: #ededed;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-left: 2rem;
+}

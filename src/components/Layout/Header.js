@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import SelectButton from "../SelectButton/SelectButton";
+import WatchList from "../WatchList/WatchList";
 import classes from "./Header.module.css";
 
 const Header = () => {
   const history = useHistory();
+  const [showWatchList, setWatchList] = useState(false);
+
+  const openWatchList = () => {
+    setWatchList(true);
+  };
+
+  const closeWatchList = () => {
+    setWatchList(false);
+  };
 
   return (
     <header className={classes.header}>
@@ -15,7 +25,11 @@ const Header = () => {
       >
         <h1>Crypto Tracker</h1>
       </div>
-      <SelectButton />
+      <div className={classes.right_side}>
+        <SelectButton />
+        <button onClick={openWatchList}>Watchlist</button>
+      </div>
+      {showWatchList && <WatchList onClose={closeWatchList} />}
     </header>
   );
 };

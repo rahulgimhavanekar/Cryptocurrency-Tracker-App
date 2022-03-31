@@ -11,7 +11,18 @@ const CoinInfo = () => {
   const params = useParams();
   const [loading, setLoading] = useState(false);
   const [currentCoin, setCurrentCoin] = useState();
-  const { currency, symbol } = useContext(CryptoContext);
+  const { currency, symbol, watchList, addToWatchList, removeFromWatchList } =
+    useContext(CryptoContext);
+
+  const isCoinOnWatchList = watchList.includes(params.id);
+
+  const onClickHandler = () => {
+    if (isCoinOnWatchList) {
+      removeFromWatchList(params.id);
+    } else {
+      addToWatchList(params.id);
+    }
+  };
 
   useEffect(() => {
     const fetchSingleCoin = async (coinId) => {
@@ -60,6 +71,9 @@ const CoinInfo = () => {
                 numberWithCommas(currentCoin?.market_data.market_cap[currency])}
             </p>
           </div>
+          <button className={classes.wl_button} onClick={onClickHandler}>
+            {!isCoinOnWatchList ? "Add to Watchlist" : "Remove from WatchList"}
+          </button>
         </section>
       )}
       <CoinChart />

@@ -1,33 +1,15 @@
 import React, { useEffect, useState, useContext } from "react";
 import CoinList from "../Coins/CoinList";
-import axios from "axios";
 import { CryptoContext } from "../../context/cypto-context";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import classes from "./Home.module.css";
 
 const Home = () => {
-  const [loading, setLoading] = useState(false);
-  const [coinList, setCoinList] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  const { currency } = useContext(CryptoContext);
+  const { loading, coinList } = useContext(CryptoContext);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.get(
-          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=100&page=1&sparkline=false`
-        );
-        setCoinList(response.data);
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, [currency]);
+  useEffect(() => {}, []);
 
   return (
     <div className={classes.home}>

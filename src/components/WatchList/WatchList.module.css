@@ -1,0 +1,49 @@
+.sidebar {
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: #444444;
+}
+
+.sidebar_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+}
+
+.sidebar_header h3 {
+  color: #da0037;
+}
+
+.sidebar_header button,
+.coin_box button {
+  font: inherit;
+  background-color: transparent;
+  color: #ededed;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+}
+
+.sidebar_content {
+  padding: 1rem;
+}
+
+.coin_box {
+  color: #ededed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #d8d8d8;
+  padding: 1rem 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.coin_box img {
+  width: 30px;
+  height: 30px;
+}

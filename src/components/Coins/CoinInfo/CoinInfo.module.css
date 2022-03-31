@@ -34,6 +34,18 @@
   font-weight: bold;
 }
 
+.wl_button {
+  font: inherit;
+  background-color: #da0037;
+  color: #ededed;
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  border: 1px solid #ededed;
+  outline: none;
+  padding: 8px 32px;
+  border-radius: 4px;
+}
+
 /* Loading Spinner */
 .centered {
   margin: 3rem auto;
