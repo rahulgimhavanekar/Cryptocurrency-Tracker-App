@@ -8,12 +8,12 @@ const WatchList = (props) => {
     useContext(CryptoContext);
 
   return (
-    <div className={classes.sidebar}>
-      <div className={classes.sidebar_header}>
+    <div className={classes.wl}>
+      <div className={classes.wl_header}>
         <h3>Your Watchlist</h3>
         <button onClick={props.onClose}>X </button>
       </div>
-      <div className={classes.sidebar_content}>
+      <div className={classes.wl_content}>
         {watchList.map((item) => {
           const coin = coinList.find((coin) => coin.id === item);
           return (

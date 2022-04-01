@@ -1,13 +1,14 @@
 .select {
-  padding: 10px 10px;
+  padding: 8px 8px;
   font-size: 1rem;
   border-radius: 4px;
-  color: #ededed;
-  background-color: #171717;
+  color: #da0037;
+  border: 1px solid #ededed;
+  background-color: #ededed;
   outline: none;
   cursor: pointer;
 }
 
 .select option {
-  background-color: #171717;
+  background-color: #ededed;
 }

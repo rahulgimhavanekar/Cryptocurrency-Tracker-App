@@ -16,10 +16,10 @@
 
 input {
   font: inherit;
-  background-color: #2b2b2b;
-  color: #ededed;
+  background-color: #ededed;
+  color: #171717;
   outline: none;
-  border: 2px solid #ededed;
+  border: 1px solid #171717;
   padding: 12px 12px;
   border-radius: 4px;
   width: 100%;
@@ -28,7 +28,7 @@ input {
 
 .main p {
   font-size: 1.25rem;
-  color: #ededed;
+  color: #171717;
 }
 
 /* Loading Spinner */

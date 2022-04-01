@@ -11,7 +11,7 @@ table {
 th {
   text-align: right;
   background-color: #da0037;
-  color: #171717;
+  color: #ededed;
   padding: 1rem;
   font-size: 1.25rem;
 }
@@ -21,8 +21,8 @@ th {
 }
 
 td {
-  border-bottom: 1px solid #ededed;
-  color: #ededed;
+  border-bottom: 1px solid #171717;
+  color: #171717;
   padding: 1rem;
   text-align: right;
 }
