@@ -1,24 +1,42 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { CryptoContext } from "../../context/cypto-context";
 import { numberWithCommas } from "../../utils";
+import Pagination from "../Pagination/Pagination";
 
 import classes from "./CoinList.module.css";
 
 const CoinsList = (props) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [collection, setCollection] = useState(props.list);
   const history = useHistory();
   const { symbol } = useContext(CryptoContext);
 
-  const filteredCoins = props.list.filter((coin) => {
+  const countPerPage = 10;
+
+  console.log(currentPage);
+
+  const handleSearch = useCallback(() => {
+    setCurrentPage(1);
+    const data = props.list.filter((coin) => {
+      return coin.name.toLowerCase().includes(props.inputText);
+    });
+    setCollection(data);
+  }, [props.list, props.inputText]);
+
+  const updatePage = useCallback(() => {
+    const firstPageIndex = (currentPage - 1) * countPerPage;
+    const lastPageIndex = firstPageIndex + countPerPage;
+    setCollection(props.list.slice(firstPageIndex, lastPageIndex));
+  }, [currentPage, props.list]);
+
+  useEffect(() => {
     if (props.inputText === "") {
-      return coin;
+      updatePage();
     } else {
-      return (
-        coin.name.toLowerCase().includes(props.inputText) ||
-        coin.symbol.toLowerCase().includes(props.inputText)
-      );
+      handleSearch();
     }
-  });
+  }, [props.inputText, handleSearch, updatePage]);
 
   return (
     <div className={classes.list}>
@@ -33,14 +51,14 @@ const CoinsList = (props) => {
           </tr>
         </thead>
         <tbody>
-          {filteredCoins.length === 0 ? (
+          {collection.length === 0 ? (
             <tr>
               <td colSpan="5" className={classes.not_found}>
                 No coins found!
               </td>
             </tr>
           ) : (
-            filteredCoins.slice(0, 10).map((coin) => {
+            collection.map((coin) => {
               const profit = coin.price_change_24h > 0;
 
               const cssClasses = profit ? classes.profit : classes.loss;
@@ -84,6 +102,13 @@ const CoinsList = (props) => {
           )}
         </tbody>
       </table>
+      <Pagination
+        currentPage={currentPage}
+        dataLength={props.list.length}
+        pageLimit={5}
+        dataLimit={10}
+        onPageChange={(page) => setCurrentPage(page)}
+      />
     </div>
   );
 };
