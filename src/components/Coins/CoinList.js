@@ -14,8 +14,6 @@ const CoinsList = (props) => {
 
   const countPerPage = 10;
 
-  console.log(currentPage);
-
   const handleSearch = useCallback(() => {
     setCurrentPage(1);
     const data = props.list.filter((coin) => {
